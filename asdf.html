@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/htmx.org@1.9.9"></script>
+<style>
+    tr td {border: 2px solid red};
+</style>
+<h1>Simple DB Query Tool</h1>
+<div>
+    <h2>connection string</h2>
+    url, port, username, password
+</div>
+<div id="lol">
+<form hx-get="/query" hx-target="#lol">
+    <label name="q" for="q"></label>
+    <textarea id="q">select * from table;</textarea>
+    <button type="submit">Send query</button>
+</form>
+<div class="result" style="border:1px solid black">
+</div>
+</div>
