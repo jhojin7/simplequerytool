@@ -28,7 +28,7 @@ def get_result():
         print(res)
         df = pd.DataFrame(res)
         html = df.to_html(columns=None, index=False)
-    return f"""
+    return HTMLResponse(f"""
 <div id="lol">
 <form hx-get="/query" hx-target="#lol">
     <label name="q" for="q"></label>
@@ -37,7 +37,8 @@ def get_result():
 </form>
 <div class="result" style="border:1px solid black">{html}</div>
 </div>
-"""
+""")
 
 
-uvicorn.run(app)
+if __name__ == "__main__":
+    uvicorn.run("backend:app", reload=True)
